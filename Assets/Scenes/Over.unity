@@ -560,14 +560,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 696554651096649861, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2295089548944519639, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
-      propertyPath: mainEngine
-      value: 
-      objectReference: {fileID: 8300000, guid: ddb07acc75aeab54eba7546dc690e422, type: 3}
     - target: {fileID: 3453923663782980909, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -35
@@ -612,18 +604,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket
       objectReference: {fileID: 0}
-    - target: {fileID: 5402325550502599171, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
-      propertyPath: crashingSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 2d0a9c2c5f7883243a7d44dd42dfe84a, type: 3}
-    - target: {fileID: 5402325550502599171, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
-      propertyPath: levelLoadDelay
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5402325550502599171, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
-      propertyPath: levelSuccessSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: fb1d70a722ebb5f4baef441bd7bff713, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
