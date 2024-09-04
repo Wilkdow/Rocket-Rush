@@ -195,23 +195,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82c4cffae859eca448ec54d68dbb31af, type: 3}
---- !u!1 &639726775 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4602397574120073641, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
-  m_PrefabInstance: {fileID: 8285118126876135661}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &639726783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 639726775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f852d3afec7af214aac6042f7278dbc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,38 +381,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 18.252, y: 0, z: 0}
---- !u!1 &1915392616 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2007484383196782626, guid: 82c4cffae859eca448ec54d68dbb31af, type: 3}
-  m_PrefabInstance: {fileID: 4795113164673708325}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1915392621
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915392616}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &3611830837161823698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -542,10 +493,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2007484383196782626, guid: 82c4cffae859eca448ec54d68dbb31af, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1915392621}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82c4cffae859eca448ec54d68dbb31af, type: 3}
 --- !u!1001 &8175643940125155836
 PrefabInstance:
@@ -612,22 +560,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11444775073048404, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 696554651096649861, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2295089548944519639, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3393468386021887106, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
-      propertyPath: m_Constraints
-      value: 48
-      objectReference: {fileID: 0}
+      propertyPath: mainEngine
+      value: 
+      objectReference: {fileID: 8300000, guid: ddb07acc75aeab54eba7546dc690e422, type: 3}
     - target: {fileID: 3453923663782980909, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -35
@@ -672,13 +612,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket
       objectReference: {fileID: 0}
+    - target: {fileID: 5402325550502599171, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
+      propertyPath: crashingSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 2d0a9c2c5f7883243a7d44dd42dfe84a, type: 3}
+    - target: {fileID: 5402325550502599171, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
+      propertyPath: levelLoadDelay
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402325550502599171, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
+      propertyPath: levelSuccessSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: fb1d70a722ebb5f4baef441bd7bff713, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4602397574120073641, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 639726783}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d498aad58b6c82f4ab4138ecf460f1a7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
