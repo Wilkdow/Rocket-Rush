@@ -3,12 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
-    //PARAMETERS
-    //CACHÉ
-    //STATE
+    // PARAMETERS - for tuning, typically set in the editor
+    // CACHE - e.g. references for readability or speed
+    // STATE - private instance (member) variables
+
     [SerializeField] float levelLoadDelay;
     [SerializeField] AudioClip crashingSFX;
     [SerializeField] AudioClip levelSuccessSFX;
+    [SerializeField] ParticleSystem crashingParticle;
+    [SerializeField] ParticleSystem levelSuccessParticle;
 
     AudioSource audioSource;
 
@@ -43,19 +46,20 @@ public class CollisionHandler : MonoBehaviour
 
     void StartCrashSequence()
     {
-        //add SFX and particle effects upon crash
         isTransitioning = true;
         audioSource.Stop();
+        crashingParticle.Play();
         audioSource.PlayOneShot(crashingSFX); 
         GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel", levelLoadDelay);
+
     }
 
     void NextLevelSequence()
     {
-        //add SFX and particle effects upon crash
         isTransitioning = true;
         audioSource.Stop();
+        levelSuccessParticle.Play();
         audioSource.PlayOneShot(levelSuccessSFX);
         GetComponent<Movement>().enabled = false;
         Invoke("LoadNextLevel", levelLoadDelay);
