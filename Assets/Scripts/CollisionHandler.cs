@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,31 +17,56 @@ public class CollisionHandler : MonoBehaviour
     AudioSource audioSource;
 
     public bool isTransitioning = false;
+    bool collisionDisabled = false;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
+    void Update()
+    {
+        RespondToDebugKeys();
+    }
+
+    private void RespondToDebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("Cheat code used! You jumped to the next level");
+            LoadNextLevel();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionDisabled = !collisionDisabled; //toggle collision
+            if (collisionDisabled)
+            {
+                Debug.Log("Cheat code used! Now you are invulnerable");
+            }
+            else
+            {
+                Debug.Log("You are not invulnerable anymore :(");
+            }
+        }
+    }
+
     void OnCollisionEnter(Collision other)
     {
-        if (!isTransitioning)
+        if (isTransitioning || collisionDisabled) { return; }
+
+        switch (other.gameObject.tag)
         {
-            switch (other.gameObject.tag)
-            {
-                case "Friendly":
-                    Debug.Log("You bumped into a friendly object");
-                    break;
+            case "Friendly":
+                break;
 
-                case "Finish":
-                    Debug.Log("You finished the level!");
-                    NextLevelSequence();
-                    break;
+            case "Finish":
+                Debug.Log("You finished the level!");
+                NextLevelSequence();
+                break;
 
-                default:
-                    Debug.Log("You crashed!");
-                    StartCrashSequence();
-                    break;
-            }
+            default:
+                Debug.Log("You crashed!");
+                StartCrashSequence();
+                break;
         }
     }
 
