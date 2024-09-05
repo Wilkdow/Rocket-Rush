@@ -31,47 +31,68 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up * mainThrustForce * Time.deltaTime);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(mainEngine);
-                audioSource.loop = true;
-            }
-            if (!mainEngineParticles.isPlaying)
-            {
-                mainEngineParticles.Play();
-            }
+            StartThrusting();
         }
         else
         {
-            audioSource.Stop();
-            mainEngineParticles.Stop();
+            StopThrusting();
         }
     }
     void ProcessRotate()
     {
         if (Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(rotationThrustForce);
-            if (!rightEngineParticles.isPlaying)
-            {
-                rightEngineParticles.Play();
-            }
+            StartRotatingLeft();
 
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(-rotationThrustForce);
-            if (!leftEngineParticles.isPlaying)
-            {
-                leftEngineParticles.Play();
-            }
+            StartRotatingRight();
         }
-        else 
+        else
         {
-            rightEngineParticles.Stop();
-            leftEngineParticles.Stop();
+            StopRotating();
         }
+    }
+    void StartThrusting()
+    {
+        rb.AddRelativeForce(mainThrustForce * Time.deltaTime * Vector3.up);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+            audioSource.loop = true;
+        }
+        if (!mainEngineParticles.isPlaying)
+        {
+            mainEngineParticles.Play();
+        }
+    }
+    private void StopThrusting()
+    {
+        audioSource.Stop();
+        mainEngineParticles.Stop();
+    }
+
+    private void StartRotatingLeft()
+    {
+        ApplyRotation(rotationThrustForce);
+        if (!rightEngineParticles.isPlaying)
+        {
+            rightEngineParticles.Play();
+        }
+    }
+    private void StartRotatingRight()
+    {
+        ApplyRotation(-rotationThrustForce);
+        if (!leftEngineParticles.isPlaying)
+        {
+            leftEngineParticles.Play();
+        }
+    }
+    private void StopRotating()
+    {
+        rightEngineParticles.Stop();
+        leftEngineParticles.Stop();
     }
 
     private void ApplyRotation(float rotationThisFrame)
