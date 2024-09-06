@@ -13,17 +13,23 @@ public class Oscillator : MonoBehaviour
     void Start()
     {
         startingPos = transform.position;
-        Debug.Log(startingPos);
     }
 
     // Update is called once per frame
     void Update()
     {
+        OscillatingWithTau();
+    }
+
+    private void OscillatingWithTau()
+    {
+        if (period <= Mathf.Epsilon) { return; }
         float cycles = Time.time / period; //continually growing over time
-        
+
         const float tau = Mathf.PI * 2; //constant mathematical value ≈ 6.28 
+
         float rawSinWave = Mathf.Sin(cycles * tau); // going from -1 to 1
-        
+
         movementFactor = (rawSinWave + 1f) / 2f; // recalculated to go from 0 to 1 so its cleaner 
 
         Vector3 offset = movementVector * movementFactor;
