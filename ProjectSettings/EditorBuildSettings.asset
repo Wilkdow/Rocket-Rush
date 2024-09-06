@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Up and Down.unity
     guid: f8382aaf08426ff448fe0ba9d7bfde76
+  - enabled: 1
+    path: Assets/Scenes/Package Collect.unity
+    guid: ed1c520297ae6784ebece86de7aad5f4
+  - enabled: 1
+    path: Assets/Scenes/Package Man.unity
+    guid: d8977050f92200c489d99632ad722a87
+  - enabled: 1
+    path: Assets/Scenes/Package Drop.unity
+    guid: 134a060ae014cf449949db4435408b65
   m_configObjects: {}

@@ -14,7 +14,9 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem crashingParticle;
     [SerializeField] ParticleSystem levelSuccessParticle;
 
+    public Package package;
     AudioSource audioSource;
+    public GameObject packageChild;
 
     public bool isTransitioning = false;
     bool collisionDisabled = false;
@@ -26,26 +28,20 @@ public class CollisionHandler : MonoBehaviour
     void Update()
     {
         RespondToDebugKeys();
+        ShowPackage();
     }
 
-    private void RespondToDebugKeys()
+    private void ShowPackage()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (package.carryingPackage == true)
         {
-            Debug.Log("Cheat code used! You jumped to the next level");
-            LoadNextLevel();
+            packageChild.GetComponent<MeshRenderer>().enabled = true;
+            packageChild.GetComponent<Collider>().enabled = true;
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        else
         {
-            collisionDisabled = !collisionDisabled; //toggle collision
-            if (collisionDisabled)
-            {
-                Debug.Log("Cheat code used! Now you are invulnerable");
-            }
-            else
-            {
-                Debug.Log("You are not invulnerable anymore :(");
-            }
+            packageChild.GetComponent<MeshRenderer>().enabled = false;
+            packageChild.GetComponent<Collider>().enabled = false;
         }
     }
 
@@ -69,7 +65,26 @@ public class CollisionHandler : MonoBehaviour
                 break;
         }
     }
-
+    private void RespondToDebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("Cheat code used! You jumped to the next level");
+            LoadNextLevel();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionDisabled = !collisionDisabled; //toggle collision
+            if (collisionDisabled)
+            {
+                Debug.Log("Cheat code used! Now you are invulnerable");
+            }
+            else
+            {
+                Debug.Log("You are not invulnerable anymore :(");
+            }
+        }
+    }
     void StartCrashSequence()
     {
         isTransitioning = true;
