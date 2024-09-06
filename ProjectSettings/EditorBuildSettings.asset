@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Basic.unity
+    guid: 475badec7d1b4b24f834d67e88397484
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
-    guid: d330766942d6f6f40a6dfa9d3f49dd5e
+    path: Assets/Scenes/Moving Pillars.unity
+    guid: c80990b51a618534e96838076dc90465
+  - enabled: 1
+    path: Assets/Scenes/Up and Down.unity
+    guid: f8382aaf08426ff448fe0ba9d7bfde76
   m_configObjects: {}
